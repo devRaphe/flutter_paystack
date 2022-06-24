@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_paystack/src/common/utils.dart';
 import 'package:flutter_paystack/src/widgets/animated_widget.dart';
 
+//https://docs.flutter.dev/development/tools/sdk/release-notes/release-notes-3.0.0
+T? _ambiguate<T>(T? value) => value;
+
 class SuccessfulWidget extends StatefulWidget {
   final int amount;
   final VoidCallback onCountdownComplete;
@@ -54,7 +57,7 @@ class _SuccessfulWidgetState extends State<SuccessfulWidget>
             }
           });
 
-    WidgetsBinding.instance!.addPostFrameCallback((_) => _startCountdown());
+    _ambiguate(WidgetsBinding.instance)!.addPostFrameCallback((_) => _startCountdown());
   }
 
   @override
