@@ -74,10 +74,13 @@ class _PinWidgetState extends BaseState<PinWidget> {
         mainAxisAlignment: MainAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
         children: List.generate(
-            _startCount,
-            (i) => star(i == (_startCount - 1)
-                ? Theme.of(context).accentColor
-                : Theme.of(context).primaryColorLight)),
+          _startCount,
+          (i) => star(
+            i == (_startCount - 1)
+                ? Theme.of(context).colorScheme.secondary
+                : Theme.of(context).primaryColorLight,
+          ),
+        ),
       ),
     );
   }

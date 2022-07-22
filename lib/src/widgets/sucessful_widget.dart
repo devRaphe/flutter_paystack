@@ -57,7 +57,8 @@ class _SuccessfulWidgetState extends State<SuccessfulWidget>
             }
           });
 
-    _ambiguate(WidgetsBinding.instance)!.addPostFrameCallback((_) => _startCountdown());
+    _ambiguate(WidgetsBinding.instance)!
+        .addPostFrameCallback((_) => _startCountdown());
   }
 
   @override
@@ -70,7 +71,7 @@ class _SuccessfulWidgetState extends State<SuccessfulWidget>
 
   @override
   Widget build(BuildContext context) {
-    final accentColor = Theme.of(context).accentColor;
+    final accentColor = Theme.of(context).colorScheme.secondary;
     return new Container(
       child: new CustomAnimatedWidget(
         controller: _mainController,

@@ -165,7 +165,7 @@ class _CheckoutWidgetState extends BaseState<CheckoutWidget>
   }
 
   Widget _buildTitle() {
-    final accentColor = Theme.of(context).accentColor;
+    final accentColor = Theme.of(context).colorScheme.primary;
     var emailAndAmount = Column(
       crossAxisAlignment: CrossAxisAlignment.end,
       children: <Widget>[
@@ -191,11 +191,17 @@ class _CheckoutWidgetState extends BaseState<CheckoutWidget>
                 width: 5.0,
               ),
               Flexible(
-                  child: Text(Utils.formatAmount(_charge.amount),
-                      style: TextStyle(
-                          fontSize: 15.0,
-                          color: Theme.of(context).textTheme.bodyText1!.color,
-                          fontWeight: FontWeight.w500)))
+                child: Text(
+                  Utils.formatAmount(_charge.amount),
+                  style: TextStyle(
+                    fontSize: 15.0,
+                    color: Theme.of(context).brightness == Brightness.light
+                        ? Colors.black
+                        : Colors.white,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              )
             ],
           )
       ],
@@ -246,7 +252,9 @@ class _CheckoutWidgetState extends BaseState<CheckoutWidget>
         child: new TabBar(
           controller: _tabController,
           isScrollable: true,
-          unselectedLabelColor: Colors.black54,
+          unselectedLabelColor: Theme.of(context).brightness == Brightness.dark
+              ? Colors.white
+              : Colors.black,
           labelColor: accentColor,
           labelStyle:
               new TextStyle(fontSize: 14.0, fontWeight: FontWeight.w500),

@@ -131,10 +131,7 @@ class _BankCheckoutState extends BaseCheckoutMethodState<BankCheckout> {
               _currentBank == null
                   ? 'Choose your bank to start the payment'
                   : 'Enter your acccount number',
-              style: const TextStyle(
-                  fontWeight: FontWeight.w500,
-                  fontSize: 14.0,
-                  color: Colors.black),
+              style: Theme.of(context).textTheme.bodyText1,
             ),
             new SizedBox(
               height: 20.0,
@@ -149,7 +146,8 @@ class _BankCheckoutState extends BaseCheckoutMethodState<BankCheckout> {
                         const BorderSide(color: Colors.grey, width: 0.5)),
                 focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(
-                        color: Theme.of(context).accentColor, width: 1.0)),
+                        color: Theme.of(context).colorScheme.secondary,
+                        width: 1.0)),
                 hintText: 'Tap here to choose',
               ),
               isEmpty: _currentBank == null,

@@ -97,7 +97,7 @@ class CustomAlertDialog extends StatelessWidget {
       var body = new Material(
         type: MaterialType.card,
         borderRadius: new BorderRadius.circular(10.0),
-        color: Colors.white,
+        color: Theme.of(context).scaffoldBackgroundColor,
         child: new Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.stretch,
